@@ -4,6 +4,7 @@ int main()
 {
     int input;
     int startvalue = 0;
+    int counter = 0;
 
     do
     {
@@ -11,10 +12,12 @@ int main()
         scanf("%d", &input);
     } while (input < 0);
 
-    for (size_t i = 0; i <= input; i++)
+    do
     {
-        startvalue = startvalue + i;
-    }
+        counter ++;
+        startvalue = startvalue + counter ;
+    } while (counter < input);
+    
 
     // Alternative: input dreieck zahl: binominalkoeffizient input+1 über 2
 

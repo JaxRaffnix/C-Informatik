@@ -1,18 +1,16 @@
 #include <stdio.h>
-#include <stdbool.h>
+// #include <stdbool.h>
 
 int main()
 {
-    int a = 0;
-    int b;
+    short a = 0;
+    short b;
 
-    while (sizeof(a) <= sizeof(b))
+    while (a >= 0)
     {
         a++;
+        printf("%d\n", a);
     }
 
-    printf("%d", a);
-    
-    
     return 0;
 }

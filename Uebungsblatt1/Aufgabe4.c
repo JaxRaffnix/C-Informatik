@@ -6,10 +6,10 @@ int main()
 {
     int input;
 
-    printf("Eingabe:");
+    printf("Input:");
     scanf("%d", &input);
 
-    printf("Fakultaet von %d: %d", input, fakultaet(input));
+    printf("Faculty of %d: %d", input, fakultaet(input));
 }
 
 int fakultaet(int n)
