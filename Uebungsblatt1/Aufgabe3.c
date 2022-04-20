@@ -1,25 +1,28 @@
-#include <stdio.h>
+/*
+Author: Jan Hoegen
+Subject: HKA Informatik 1 Übungsblatt 1 Aufgabe 3
+Task: Calculate sum of a positive digit and its predecessors with a do...while.
+*/
+
+#include <stdio.h>                      // standard input and output functions
 
 int main()
 {
-    int input;
-    int startvalue = 0;
-    int counter = 0;
+    int input;                          // input
+    int sum = 0;                        // result
+    int counter = 0;                    // counter
 
     do
     {
         printf("Ganzzahlige positive Zahl eingeben:");
         scanf("%d", &input);
-    } while (input < 0);
+    } while (input < 0);                // check for positive input number 
 
     do
     {
-        counter ++;
-        startvalue = startvalue + counter ;
-    } while (counter < input);
-    
+        counter ++;                     // increment counter 
+        sum = sum + counter ;           // add each integer to previous results.
+    } while (counter < input);          // for every integer that's less than input
 
-    // Alternative: input dreieck zahl: binominalkoeffizient input+1 über 2
-
-    printf("%d", startvalue);
+    printf("Ergebnis: %d", sum);
 }
