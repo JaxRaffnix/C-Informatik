@@ -27,5 +27,12 @@ int main ()
         }
     }
 
-    printf("Kleinster Wert: %d", min);
+    printf("Kleinster Wert: %d", min); 
 }
+
+/*
+Improve: statt max = 0, besser:
+myarry[0] und myarray[1] vergleichen, größeren wert als max speichern 
+LAternaive:
+max = myarry[o]
+*/
