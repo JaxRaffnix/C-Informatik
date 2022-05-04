@@ -16,7 +16,7 @@ int main()
     {
         circumference = 2 * pi * i;     // calculate circumference
 
-        printf("Kreisumfang fuer Radius %d: %.2f\n", i, circumference);     // print result. Round result to 2 digits
+        printf("Kreisumfang fuer Radius %d: %.2f\n mm", i, circumference);     // print result. Round result to 2 digits
     }    
 }
 

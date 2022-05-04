@@ -28,6 +28,4 @@ int main ()
     }
 
     printf("Kleinster Wert: %d", min);
-    
-    
 }

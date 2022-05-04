@@ -4,13 +4,18 @@ int main()
 {
     int x = 5;
     int result = 1;
-    int counter = 1;
+    // int counter = 1;
 
-    while (counter != x)
+    for (size_t i = 1; i <= x; i++)
     {
-        counter++;
-        result = result * counter;
+        result = result * i;
     }
+    
+    // while (counter != x)
+    // {
+    //     counter++;
+    //     result = result * counter;
+    // }
 
     printf("%d",result);
 

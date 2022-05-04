@@ -20,9 +20,9 @@ int main()
 
     do
     {
-        counter ++;                     // increment counter 
         sum = sum + counter ;           // add each integer to previous results.
-    } while (counter < input);          // for every integer that's less than input
+        counter ++;                     // increment integer 
+    } while (counter <= input);          // for every integer that's less than input
 
     printf("Ergebnis: %d", sum);
 }

@@ -1,4 +1,5 @@
 /*
+88+36+25
 Author: Jan Hoegen
 Subject: HKA Informatik 1 Übungsblatt 1 Aufgabe 1
 Task: Use a while loop to increment variable until datatype short has an overflow.
@@ -17,7 +18,6 @@ int main()
     } 
     return 0;                           // exit program
 }
-
 /*
 Result: Overflow for short data type happens at 32768.
 */
