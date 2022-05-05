@@ -2,10 +2,10 @@
 
 int main ()
 {
-    int myarray[5] = {-1,2,3,-40,900};
+    int myarray[5] = {-1,-2,-3,-40,-900};
     int arraysize = sizeof(myarray) / sizeof(myarray[0]);
 
-    int max = 0;
+    int max = myarray[0];
 
     for (size_t i = 0; i < arraysize; i++)
     {

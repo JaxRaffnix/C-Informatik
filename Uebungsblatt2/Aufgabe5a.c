@@ -54,7 +54,7 @@ int main ()
         }
     }
 
-    printf("Summe Array1 +  Array2\n");
+    printf("Summe Array1 + Array2\n");
     for (size_t i = 0; i < 3; i++)
     {
         for (size_t j = 0; j < 3; j++)

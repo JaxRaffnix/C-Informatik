@@ -3,11 +3,11 @@
 int main()
 {
 
-    int myarray[5] = {-1,2,3,-40,900};
+    int myarray[5] = {-0,0,0,0,1};
     int arraysize = sizeof(myarray) / sizeof(myarray[0]);
 
     int sum = 0;
-    int average;
+    float average;
 
     for (size_t i = 0; i < arraysize; i++)
     {
@@ -16,7 +16,7 @@ int main()
     
     printf("Summe: %d\n", sum);
 
-    average = sum / arraysize;
+    average = (float)sum / arraysize;
 
-    printf("arithmetischer Mittelwert: %d", average);
+    printf("arithmetischer Mittelwert: %f", average);
 }

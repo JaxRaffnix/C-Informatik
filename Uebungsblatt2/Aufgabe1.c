@@ -1,3 +1,5 @@
+// 45+99+22
+
 #include <stdio.h>
 
 int main ()
@@ -5,20 +7,20 @@ int main ()
     int myarray[5]= {0};
 
     printf("Das Array hat die Werte:\n");
-    for (size_t i = 0; i < 5; i++)
+    for (int i = 0; i < 5; i++)
     {
         printf("%d, ", myarray[i]);
     }
     printf("\n");
 
-    for (size_t i = 0; i < 5; i++)
+    for (int i = 0; i < 5; i++)
     {
         printf("Gebe neuen Wert des Arrays fuer die Stelle %d ein:", i);
         scanf("%d", &myarray[i]);
     }
 
     printf("Das Array hat nun die Werte:\n");
-    for (size_t i = 0; i < 5; i++)
+    for (int i = 0; i < 5; i++)
     {
         printf("%d, ", myarray[i]);
     }
