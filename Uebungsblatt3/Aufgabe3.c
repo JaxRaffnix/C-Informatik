@@ -4,7 +4,7 @@ int main()
 {
     char mytext[] = {"Hallo Test!"};
     // char mytext[] = {'H','a','l','l','o','!'};
-    int arraysize = sizeof(mytext) / sizeof(mytext[0]);
+    int arraysize = sizeof(mytext) / sizeof(mytext[0]);     // = 10
 
     char reversed_string[12] = {""};
     for (int i = 0; i < arraysize; i++)

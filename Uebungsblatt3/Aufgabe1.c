@@ -7,12 +7,10 @@ int main ()
 
     for (int i = 0; i < arraysize; i++)
     {
-        printf("String an der Arraystelle %d:",i);
+        printf("String an der Arraystelle %d: ",i);
         scanf("%s", myarray[i]);
         // fgets(myarray[i], 1, stdin);
     }
-    
-    // myarray[0] = "eins";
 
     for (int i = 0; i < arraysize; i++)
     {
@@ -20,8 +18,6 @@ int main ()
     }
 
     /*
-    Aufgabe 3.2
-    Kleinbuchstabe in Großbuchstabe.
-    Ausgabe: kleinbuchstabe, ascii-wert, großbuchstabe, 
+    Aufgabe 3.1
     */
 }
