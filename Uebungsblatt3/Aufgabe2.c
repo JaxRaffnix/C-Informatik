@@ -14,11 +14,6 @@ int main ()
             printf("\nNeuer Versuch\n");
             scanf("%s", &small_letter[i]);
         }
-        // do
-        // {
-        //     printf("Kleinbuchstabe %d: ", i);
-        //     scanf("%s", &small_letter[i]);
-        // } while (small_letter[i] > 97);
     }
 
     int arraysize = sizeof(small_letter) / sizeof(small_letter[0]);       // = 10
