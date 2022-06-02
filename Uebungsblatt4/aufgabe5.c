@@ -26,7 +26,7 @@ int is_even_bool(int number)
 
 int main()
 {
-    int x = 4;
+    int x = 5;
 
     printf("%d ist gerade durch Modulo: %d\n", x, is_even(x));
     printf("%i ist gerade durch Arithmetik: %d\n", x, is_even_bool(x));

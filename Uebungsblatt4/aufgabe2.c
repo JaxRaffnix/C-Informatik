@@ -3,16 +3,8 @@
 int print_bit(int number)
 {
     int base = 2;
-    // int number_bin;
     int divider = number;
     int remainder[12] = {};
-    // int remainder;
-
-    // for (int i = 0; divider > 0; i++)
-    // {
-    //     remainder[i] = divider % 2;
-    //     divider = divider / 2;
-    // }
 
     int i = 0;
     while (number > 0)
@@ -38,7 +30,7 @@ int print_bit(int number)
 int main()
 
 {
-    int x = 15;
+    int x = -3;
     printf("Dezimalzahl: %d\n", x);
     print_bit(x);
 }

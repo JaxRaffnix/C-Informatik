@@ -5,13 +5,28 @@
 int bits(int number_binary)
 {
     int counter = 0;
-    while (number_binary > 0)
+
+    if(number_binary > 0)
     {
-        if ( (number_binary & 1) == 1)  // check if last bit is 1
+        while (number_binary > 0)
         {
-            counter++;
+            if ( (number_binary & 1) == 1)  // check if last bit is 1
+            {
+                counter++;
+            }
+            number_binary = number_binary >> 1;
         }
-        number_binary = number_binary >> 1;
+    }
+    else
+    {
+        while (number_binary < -1)
+        {
+            if ( (number_binary & 1) == 1)  // check if last bit is 1
+            {
+                counter++;
+            }
+            number_binary = number_binary >> 1;
+        }
     }
     
     return counter;
@@ -20,7 +35,9 @@ int bits(int number_binary)
 
 int main()
 {
-    int x = 7;
+    int x = 5; 
+
+    char y[] = {'2'};	
     
     // int x_binary = print_bit(x);
 

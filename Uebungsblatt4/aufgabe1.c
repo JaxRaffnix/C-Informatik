@@ -1,3 +1,5 @@
+// 84 + 76 +97 
+
 #include <stdio.h>
 
 int main()
@@ -10,5 +12,5 @@ int main()
 
     printf("Dezimaldarstellung:\t%d\n", input_value) ;
     printf("Oktaldarstellung:\t%#o\n", input_value) ;
-    printf("Hexadezimaldarstellung:\t%#x\n", input_value) ;
+    printf("Hexadezimaldarstellung:\t%#X\n", input_value) ;
 }
