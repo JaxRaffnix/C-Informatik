@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int print_bit(int number)
+void print_bit(int number)
 {
     int base = 2;
     int divider = number;

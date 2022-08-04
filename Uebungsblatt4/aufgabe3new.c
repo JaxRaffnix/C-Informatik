@@ -1,93 +1,27 @@
 #include <stdio.h>
 
-// char bin_to_dec(x[])
-// {
-//     int dec;
-//     int arraysize = sizeof(x) / sizeof(x[0]);
-//     int base = 1;
-
-//     for (int i = 0; i < arraysize; i++)
-//     {
-//         dec = dec + x[i] * base;
-//         base = base * 2;
-//     }
-
-//     return dec;
-// }
-
 int main()
 {
-    // char x[5] = {0};
-    // printf("Gebe Binaerzahl ein: ");
-    // scanf("%s", &x);
-
-    // int dec;
-    // // int arraysize = sizeof(x) / sizeof(x[0]);
-    // // int arraysize = 3;
-    // int base = 16;
-
-    // for (int i = 4; i >= 0; i--)
-    // {
-    //     if (x[i] == '1')
-    //     {
-    //         dec = dec + 1 * base;
-    //     }
-    //     base = base / 2;
-    // }
-
-    // printf("%d", dec);
-
-//------------------
-    char binary[17] = {0};
-
+    int binary;
     printf("Gebe Binaerzahl ein: ");
-    scanf("%s", &binary);
+    scanf("%d", &binary);
+    printf("Input: %d\n", binary);
 
-    // for (int i = 0; i < 16; i++)
-    // {
-    //     if (binary[i] == '\0')
-    //     {
-    //         zwischenarray[i] =binary[i];
-    //     }
-        
-    // }
-    // if()
-    // int zwischenarray = binary
-
-    int groesse;
-    int j = 0;
-    while (binary[j] != '\0')
+    if (binary > 1111111111111111)
     {
-        // [j] = binary[j];
-        j++;
-        groesse ++;
+        return 0;
     }
 
-    // printf("%d\n", groesse);
-
-    // return 0;
-
+    int dec = 0;
+    int base = 1;
+    int remainder = 0;
+    while (binary > 0)
+    {
+        remainder = binary % 10;
+        binary = binary / 10;
+        dec = dec + remainder * base;
+        base = base * 2;
+    }
     
-
-    // int arraysize = sizeof(binary)/sizeof(binary[0]);
-    int arraysize = 16;
-
-    int decimal;
-    int basis = arraysize;
-    for (int i = 0; i < groesse; i++)
-    {
-        decimal = decimal + (binary[i] - '0') * basis;
-        basis = basis / 2;
-    }
-
-    // int basis = 1;
-    // for (int i = arraysize -2; i >= 0; i--)
-    // {
-    //     decimal = decimal + (binary[i] - '0') * basis;
-    //     basis = basis * 2;
-    // }
-
-    printf("%s ist %d", binary, decimal);
-
+    printf("Output: %ld", dec);
 }
-

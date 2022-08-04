@@ -17,7 +17,7 @@ int bits (char binary[])
 
 int main () 
 {
-    char x [] = {"110"}; 
+    char x [] = {"11111110"}; 
 
     printf ("Für %s sind Bits auf 1: %d\n",  x, bits(x));
 }
