@@ -30,7 +30,7 @@ void print_bit(int number)
 int main()
 
 {
-    int x = -3;
+    int x = 3;
     printf("Dezimalzahl: %d\n", x);
     print_bit(x);
 }
