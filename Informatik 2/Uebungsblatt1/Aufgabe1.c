@@ -1,3 +1,8 @@
+/*
+*   Task:
+*   use pointer to reference variables
+*/
+
 #include <stdio.h>
 #include <string.h>
 
