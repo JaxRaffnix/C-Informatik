@@ -1,6 +1,8 @@
 /*
 *   Task:
 *   Input word to scanf, take that array and allocate storafe dynamically. return address of allocated storage and store for 10 different words.
+*
+* To DO: change int to char f for address list
 */
 
 #include <stdio.h>
@@ -32,12 +34,13 @@ int main()
         address_list[i] = wort_speicher(array);     // store each word address in address_list array
     }
 
-    char address_dereference[number_of_words];
+    int address_dereference[number_of_words];
+
     printf("Address of input words:\n");
     for (int i = 0; i < number_of_words; i++)
     {
-        address_dereference[i] = *(char*) address_list[i]; 
-        printf("%x\n", address_dereference[i]);
+        address_dereference[i] = *(int*) address_list[i]; 
+        printf("%d\n", address_dereference[i]);
     }
     
 }
