@@ -10,37 +10,37 @@
 #include <stdlib.h>
 // #include <math.h.>
 
-int wort_speicher(char input[])                      // create dynamically allocated storage for input array, return address allocated storage
+char wort_speicher(char input[])                                // create dynamically allocated storage for input array, return address of allocated storage
 {
-
-    int input_size = strlen(input);                 // get length of input array
+    int input_size = strlen(input);                             // get length of input array
     
-    int *address_of_input = malloc(input_size * sizeof(char));        // create dynamically allocated storage for input array
+    char *input_address = malloc(input_size * sizeof(char));    // create dynamically allocated storage with the size of the input array
+    input_address = &input;                                     // store input array in dynamically allocated storage
 
-    return address_of_input;                       // return address allocated storage
+    return input_address;                                       // return address of the allocated storage
 }
 
-int main()
+int main()                                                      // scan up to 10 words, store their address in an array and return the words.
 {
+    int number_of_words = 2;                                    // store 10 words at maximum, defined by assignment
+    char address_list[number_of_words];                         // list of all the word addresses
 
-    int number_of_words = 2;                   // store 10 words at maximum, defined by assignment
-    int address_list[number_of_words];         // store address of alle the input words 
-
-    for (int i = 0; i < number_of_words; i++)
+    for (int i = 0; i < number_of_words; i++)                   // get user input for every word
     {
-        char array[20];
+        char array[20];                                         // create char array to store the input
         printf("Wort eingeben:\n");
-        scanf("%s", &array);                    // user input word, maximum 20 digits
-        address_list[i] = wort_speicher(array);     // store each word address in address_list array
+        scanf("%s", &array);                                    // user input word, maximum 20 characters
+        address_list[i] = wort_speicher(array);                 // store the address of each word in address_list array
     }
 
-    int address_dereference[number_of_words];
+    char address_dereference[number_of_words];                  // array to convert addresses to words
 
     printf("Address of input words:\n");
-    for (int i = 0; i < number_of_words; i++)
+    for (int i = 0; i < number_of_words; i++)                   // print the input words by finding the address of each word
     {
-        address_dereference[i] = *(int*) address_list[i]; 
-        printf("%d\n", address_dereference[i]);
+        // address_dereference[i] = *(int*) address_list[i]; 
+        address_dereference[i] = address_list[i]; 
+        printf("%c\n", address_dereference[i]);
     }
     
 }
