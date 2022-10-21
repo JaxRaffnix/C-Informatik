@@ -20,7 +20,7 @@ char *wort_speicher(char input[])                   // create dynamically alloca
 
 int main()                                             // scan up to 10 words, store their address in an array and return the words.
 {
-    int number_of_words = 10;                            // define how many words can be stored. 10 is set by assignment
+    int number_of_words = 2;                            // define how many words can be stored. 10 is set by assignment
     char *address_list[number_of_words];                // address to every input word
 
     char input_array[20] = "";                          // store user input in  char array

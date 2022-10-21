@@ -10,7 +10,13 @@
 int main()
 {
 
-    float *storage = malloc(sizeof(float));   // allocate storage for variables of type float
+    float *storage = (float*) malloc(sizeof(float));   // allocate storage for variables of type float
+
+    if (storage==NULL)
+    {
+        return -1;
+    }
+    
 
     float value1 = 501.0;       // initial value
     storage = &value1;
