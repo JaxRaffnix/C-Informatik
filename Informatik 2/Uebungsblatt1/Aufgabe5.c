@@ -20,21 +20,21 @@ char *wort_speicher(char input[])                   // create dynamically alloca
 
 int main()                                             // scan up to 10 words, store their address in an array and return the words.
 {
-    int number_of_words = 2;                            // define how many words can be stored. 10 is set by assignment
+    int number_of_words = 10;                            // define how many words can be stored. 10 is set by assignment
     char *address_list[number_of_words];                // address to every input word
 
     char input_array[20] = "";                          // store user input in  char array
 
     for (int i = 0; i < number_of_words; i++)           // get user input for specified number of words
     {
-        printf("Wort eingeben:\n");
+        printf("Eingabe Wort:\n");
         scanf("%s", input_array, 20);                   // user input, maximum 20 characters
         address_list[i] = wort_speicher(input_array);   // store the address of each word in address_list array
     }
 
     for (int i = 0; i < number_of_words; i++)           // print words stored in address list array
     {
-        printf("%s\n", &address_list[i]);
+        printf("Ausgabe Wort %d: %s\n", i, address_list[i]);
     }
 }
 
