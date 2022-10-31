@@ -8,12 +8,15 @@ int main()
     input_filepath = fopen("input.txt", "r");
     output_filepath = fopen("output.txt", "w");
 
-    while (fgetc(input_filepath) != EOF)
+    int temporary;
+
+    while (1)
     {
-        fputc(fgetc(input_filepath), output_filepath);
+        temporary = fgetc(input_filepath);
         if (feof(input_filepath))
         {
             break;
         }
+        fputc(temporary, output_filepath);
     }
 }
