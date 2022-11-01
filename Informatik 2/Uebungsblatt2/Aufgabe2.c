@@ -1,22 +1,27 @@
+/*
+*   Task: copy file content to a new file
+*/
+
 #include <stdio.h>
+#include <stdlib.h>
 
 int main()
 {
-    FILE* input_filepath;
-    FILE* output_filepath;
+    FILE* input = fopen("input.txt", "r");
+    FILE* output = fopen("output.txt", "w");
+    int a;
 
-    input_filepath = fopen("input.txt", "r");
-    output_filepath = fopen("output.txt", "w");
-
-    int temporary;
-
-    while (1)
+    if (input == NULL)
     {
-        temporary = fgetc(input_filepath);
-        if (feof(input_filepath))
-        {
-            break;
-        }
-        fputc(temporary, output_filepath);
+        printf("Input file doesn't exist");
+        exit(-1);
     }
+
+    while ( !feof(input) )
+    {
+        fputc(fgetc(input), output);
+    }
+
+    fclose(input);
+    fclose(output);
 }

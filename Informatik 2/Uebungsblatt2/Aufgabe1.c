@@ -1,20 +1,24 @@
+/*
+*   Task: print file content to command prompt
+*/
+
 #include <stdio.h>
-// #include <stdlib.h>
+#include <stdlib.h>
 
 int main()
 {
-    FILE* filepath;
-    int output;
+    FILE* input = fopen("input.txt", "r");
 
-    filepath = fopen("input.txt", "r");
-
-    while (1)
+    if (input == NULL)
     {
-        output = fgetc(filepath);
-        if (feof(filepath))
-        {
-            break;
-        }
-        printf("%c", output);
+        printf("Input file doesn't exist");
+        exit(-1);
+    }
+
+    while (!feof(input))
+    {
+        printf("%c", fgetc(input));
     }   
+
+    fclose(input);
 }

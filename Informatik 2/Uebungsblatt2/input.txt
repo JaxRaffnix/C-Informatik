@@ -1,10 +1,5 @@
 eins
+
+zwei 
 drei
 
-Das ist das zweite Aufgabenblatt aus Informatik 2
-
-
-Test Test
-Test
-
-Nummer 3!
