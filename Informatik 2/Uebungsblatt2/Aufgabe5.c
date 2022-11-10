@@ -9,10 +9,8 @@
 int main()
 {
 
-    int amount_of_numbers = 3;
-
     FILE *input = fopen("input-a5.txt", "r");
-    // FILE *output = fopen("output-a5.txt", "w");
+    FILE *output = fopen("output-a5.txt", "w");
 
     if (input == NULL)
     {
@@ -32,14 +30,22 @@ int main()
             i++; 
         }
 
+    int amount_of_numbers = i;
+
     for (int i = 0; i < amount_of_numbers; i++)
     {
         storage[i] = truncf(storage[i]);
         // printf("%d, %f",storage[i]);
     }
     
+    for (int i = amount_of_numbers -1; i >= 0; i--)
+    {
+        fprintf(output, "%.0f", storage[i]);
+        fprintf(output, "\n");
+    }
+    
 
     fclose(input);
-    // fclose(output);
+    fclose(output);
 
 }
