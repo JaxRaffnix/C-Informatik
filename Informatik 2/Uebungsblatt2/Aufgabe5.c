@@ -8,7 +8,6 @@
 
 int main()
 {
-
     FILE *input = fopen("input-a5.txt", "r");
     FILE *output = fopen("output-a5.txt", "w");
 
@@ -18,34 +17,26 @@ int main()
         exit(-1);
     }
 
-    float storage[100] = {};
-
-    float line;
-    int i;
-    
+    float storage[100];
+    int j;
     while (!feof(input))
         {
-            fscanf(input, "%f", &line);  
-            storage[i]= line;
-            i++; 
+            fscanf(input, "%f", &storage[j]);  
+            j++; 
         }
 
-    int amount_of_numbers = i;
-
-    for (int i = 0; i < amount_of_numbers; i++)
+    int length = j;
+    for (int i = 0; i < length; i++)
     {
         storage[i] = truncf(storage[i]);
-        // printf("%d, %f",storage[i]);
     }
     
-    for (int i = amount_of_numbers -1; i >= 0; i--)
+    for (int i = length -1; i >= 0; i--)
     {
         fprintf(output, "%.0f", storage[i]);
         fprintf(output, "\n");
     }
     
-
     fclose(input);
     fclose(output);
-
 }

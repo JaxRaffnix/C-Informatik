@@ -13,14 +13,11 @@ float * array_einlesen(FILE * input_path)
         exit(-1);
     }
 
-    float storage[100];
-    float line;
+    static float storage[100];
     int i;
-    
     while (!feof(input_path))
         {
-            fscanf(input_path, "%f", &line);  
-            storage[i]= line;
+            fscanf(input_path, "%f", &storage[i]);  
             i++; 
         }
     return storage;
@@ -29,18 +26,12 @@ float * array_einlesen(FILE * input_path)
 int main()
 {
     FILE * input_file = fopen("input-a5.txt", "r");
-    float * pointer;
+    float * array_pointer;
 
-    pointer= array_einlesen(input_file);
+    array_pointer = array_einlesen(input_file);
 
     for (int i = 0; i < 100; i++)
     {
-        printf("Value %d : %f\n", i, *(pointer +i));
+        printf("Value %d : %f\n", i, *(array_pointer +i));
     }
-    
-
-    // int output_array[5];
-
-    //   = array_einlesen();
-
 }
