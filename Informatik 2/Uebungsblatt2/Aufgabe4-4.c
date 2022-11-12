@@ -1,44 +1,52 @@
-// float * array_einlesen(FILE * input_path, int length)
-// {
-//     if (input_path == NULL)
-//     {
-//         printf("Input file doesn't exist");
-//         exit(-1);
-//     }
+#include <stdlib.h>
+#include <stdio.h>
 
-//     static float storage[100];
-//     // for (int i = 0; i < length; i++)
-//     // {
-//     //     fscanf(input_path, " %f", &storage[i]);
-//     // }
-//     int i;
-//     while (!feof(input_path))
-//         {
-//             fscanf(input_path, "%f", &storage[i]);  
-//             i++; 
-//         }
+float * array_einlesen(FILE * input_path, float target_array[], int length)
+{
+    if (input_path == NULL)
+    {
+        printf("Input file doesn't exist");
+        exit(-1);
+    }
 
-//     return storage;
-// }
+    int i;
+    while (!feof(input_path))
+        {
+            fscanf(input_path, "%f", &target_array[i]);  
+            i++; 
+        }
+}
 
-// int main()
-// {
-//     FILE * input_file = fopen("input-a5.txt", "r");
+int main()
+{
+    FILE * input_file = fopen("input-a5.txt", "r");
+    float * array_pointer;
 
-//     int get_length, dummy;
-//     while (!feof(input_file))
-//     {
-//         fscanf(input_file, "%f", &dummy);  
-//         get_length++;
-//     }
+    if (input_file == NULL)
+    {
+        printf("Input file doesn't exist");
+        exit(-1);
+    }
+
+    int file_length, dummy;
+    while (!feof(input_file))
+    {
+        fscanf(input_file, "%f", &dummy);  
+        file_length++;
+    }
+
+    float storage[file_length];
+    for (int i = 0; i < file_length; i++)
+    {
+        storage[i] = 0;
+    }
     
-//     float * array_pointer;
-//     array_pointer = array_einlesen(input_file, get_length);
+    array_einlesen(input_file, storage, file_length);
 
-//     fclose(input_file);
+    fclose(input_file);
 
-//     for (int i = 0; i < get_length; i++)
-//     {
-//         printf("Value %d : %f\n", i, *(array_pointer +i));
-//     }
-// }
+    for (int i = 0; i < 100; i++)
+    {
+        printf("Value %d : %f\n", i, storage[i]);
+    }
+}
