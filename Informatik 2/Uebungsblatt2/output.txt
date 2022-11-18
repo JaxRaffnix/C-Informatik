@@ -3,24 +3,17 @@ eins
 zwei 
 drei
 
+!
 ÿeins
 
 zwei 
 drei
 
+!
 ÿeins
 
 zwei 
 drei
 
-ÿeins
-
-zwei 
-drei
-
-ÿeins
-
-zwei 
-drei
-
+!
 ÿ

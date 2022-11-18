@@ -8,7 +8,7 @@
 
 int main()
 {
-    FILE *input = fopen("input-a5.txt", "r");
+    FILE *input = fopen("input-a4.txt", "r");
     FILE *output = fopen("output-a5.txt", "w");
 
     if (input == NULL)

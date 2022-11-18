@@ -19,7 +19,7 @@ float * array_einlesen(FILE * input_path, float target_array[], int length)
 
 int main()
 {
-    FILE * input_file = fopen("input-a5.txt", "r");
+    FILE * input_file = fopen("input-a4.txt", "r");
     float * array_pointer;
 
     if (input_file == NULL)
