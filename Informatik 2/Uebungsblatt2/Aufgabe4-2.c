@@ -26,7 +26,7 @@ int main()
 {
     FILE * input_file = fopen("input-a4.txt", "r");
 
-    float target_array[100] = {};
+    float target_array[100];
 
     array_einlesen(input_file, target_array);
 
