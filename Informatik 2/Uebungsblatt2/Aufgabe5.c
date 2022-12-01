@@ -17,15 +17,14 @@ int main()
         exit(-1);
     }
 
-    float storage[100];
-    int j;
+    float storage[100]={0};
+    int length =0;
     while (!feof(input))
         {
-            fscanf(input, "%f", &storage[j]);  
-            j++; 
+            fscanf(input, "%f", &storage[length]);  
+            length++; 
         }
 
-    int length = j;
     for (int i = 0; i < length; i++)
     {
         storage[i] = truncf(storage[i]);
