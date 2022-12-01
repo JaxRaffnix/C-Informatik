@@ -17,23 +17,22 @@ int main()
         exit(-1);
     }
 
+    int line = 0;
     float storage[100]={0};
-    int length =0;
     while (!feof(input))
         {
-            fscanf(input, "%f", &storage[length]);  
-            length++; 
+            fscanf(input, "%f", &storage[line]);  
+            storage[line] = truncf(storage[line]);
+            if (feof(input))
+            {
+                break;
+            }
+            line++; 
         }
-
-    for (int i = 0; i < length; i++)
-    {
-        storage[i] = truncf(storage[i]);
-    }
     
-    for (int i = length -1; i >= 0; i--)
+    for (int i = line -1; i >= 0; i--)
     {
-        fprintf(output, "%.0f", storage[i]);
-        fprintf(output, "\n");
+        fprintf(output, "%.0f\n", storage[i]);
     }
     
     fclose(input);
