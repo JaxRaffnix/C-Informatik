@@ -1,66 +1,6 @@
 #include <stdio.h>
-
-// int number_of_entries (struct student *s, int max)
-// {
-//     char filename[20];
-//     printf("Specify input file, max. name length is 20 characters:\n");
-//     scanf("%s", filename);
-//     FILE* inputfile = fopen (filename, "r");
-
-//     if (inputfile == NULL)
-//     {
-//         return 0;
-//     }
-    
-//     int lines;
-//     char temp;
-//     while (!feof (inputfile))
-//     {
-//         temp = fgetc (inputfile);
-//         if (temp == '\n')
-//         {
-//             lines++;
-//         }
-//     }
-//     return lines;
-    
-// }
-
-// unsigned int age (struct student *s)
-// {
-//     struct current_time
-//     {
-//         int day;
-//         int month;
-//         int year;
-//     };
-//     struct current_time ws2022;
-//     ws2022.day = 12;
-//     ws2022.month = 12;
-//     ws2022.year = 2022;
-// };
-
-// int youngest (struct student *s, int length)
-// {
-//     struct youngest {
-//         unsigned int age;
-//         struct student youngest;
-//     };
-//     struct youngest findyoungest;
-
-//     findyoungest.age = 100;
-//     for (int i = 0; i < length; i++)
-//     {
-//         if (age(mystudentlist[i] < findyoungest.age))
-//         {
-//             findyoungest.age = age(mystudentlist[i]);
-//             findyoungest.youngest = mystudentlist[i];
-//         }
-//     }
-//     return findyoungest;
-// };
-
-int read_student_data(char *filename, struct student *students) {};
+#include <stdlib.h>
+#include <time.h>
 
 #define MAX_STUDENTS 100
 
@@ -75,25 +15,18 @@ struct student {
     struct birthday studentbirthday;
 };
 
-int main()
-{
-    struct student students[100];
-
-    read_student_data("studentlist.txt", students);
-
-}
-
-int read_student_data(char *filename, struct student *students) {
+int read_student_data(char *filename, struct student *students, int max) {
     FILE *file = fopen(filename, "r");
     if (file == NULL) {
         printf("Error: unable to open file '%s'.\n", filename);
         return 0;
-    }
+}
 
     int i = 0;
-    while (fscanf(file, "%s %d %d %d %d", students[i].name, &students[i].semester, &students[i].studentbirthday.day, &students[i].studentbirthday.month, &students[i].studentbirthday.year) == 5) {
+    while (fscanf(file, "%s %d %d.%d.%d", students[i].name, &students[i].semester, &students[i].studentbirthday.day, &students[i].studentbirthday.month, &students[i].studentbirthday.year) == 5) {
         i++;
-        if (i >= MAX_STUDENTS) {
+        if (i >= max) {
+            printf("Error: too many entries in the file. Limit is reached.\n");
             break;
         }
     }
@@ -101,3 +34,57 @@ int read_student_data(char *filename, struct student *students) {
     fclose(file);
     return i;
 };
+
+int calculate_student_age(struct student* students, int entry) {
+    time_t current_time = time(NULL);
+    struct tm* current_date = localtime(&current_time);
+
+    int current_year = current_date->tm_year + 1900;
+    int current_month = current_date->tm_mon + 1;
+    int current_day = current_date->tm_mday;
+
+    int birth_year = students[entry].studentbirthday.year;
+    int birth_month = students[entry].studentbirthday.month;
+    int birth_day = students[entry].studentbirthday.day;
+
+    int age = current_year - birth_year;
+
+    if (current_month < birth_month || (current_month == birth_month && current_day < birth_day)) {
+        age--;
+    }
+
+    return age;
+};
+
+int find_youngest_student(struct student* students, int entries) {
+    int youngest_age = 200;
+    for (int i = 0; i < entries + 1; i++)
+    {
+        if (calculate_student_age(students, i) < youngest_age)
+        {
+            youngest_age = calculate_student_age(students, i);
+        }
+    }
+    return youngest_age;
+};
+
+int main()
+{
+    struct student students[MAX_STUDENTS];
+
+    int entries = read_student_data("studentlist.txt", students, MAX_STUDENTS);
+
+    printf("Read %d entries\n", entries);
+
+    for (int i = 0; i < entries; i++) {
+        printf("Entry: %d\t Name: %s, Semester: %d, Birthday: %d.%d.%d\n", i, students[i].name, students[i].semester, students[i].studentbirthday.day, students[i].studentbirthday.month, students[i].studentbirthday.year);
+    }
+
+    int age = calculate_student_age(students, 1);
+    printf("Age: %d\n", age);
+
+    int youngest = find_youngest_student(students, entries-1);
+    printf("youngest student: %d\n", youngest);
+
+    return 0;
+}
